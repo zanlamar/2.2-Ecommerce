@@ -90,22 +90,35 @@ const buy = (id) => {
 
 // Exercise 2
 const cleanCart = () =>  {
-    return cart.length = 0;
+    let emptyCart = cart.splice(0, cart.length);
+    
 }
 
 // Exercise 3
 const calculateTotal = () =>  {
-    // Calculate total price of the cart using the "cartList" array
     let total = 0;
-    cart.forEach(element => { total += element.price * element.quantity
-    }); 
-    return total;
+    // Calculate total price of the cart using the "cartList" array
+    cart.forEach(element => { 
+        total += element.price * element.quantity}); 
+    return total.toFixed(2);
 }
 
 // Exercise 4
 const applyPromotionsCart = () =>  {
     // Apply promotions to each item in the array "cart"
-}
+    let subtotalDiscount = 0;
+
+    cart.forEach((element) => {
+
+        if (element.offer && element.quantity >= element.offer.number) {
+            const discount = element.price * (element.offer.percent / 100);
+            const promoPrice = element.price - discount;
+            subtotalDiscount += promoPrice * element.quantity;
+        } else {
+            subtotalDiscount += element.price * element.quantity;
+        };
+    }); return subtotalDiscount.toFixed(2);
+};
 
 // Exercise 5
 const printCart = () => {
