@@ -90,12 +90,16 @@ const buy = (id) => {
 
 // Exercise 2
 const cleanCart = () =>  {
-
+    return cart.length = 0;
 }
 
 // Exercise 3
 const calculateTotal = () =>  {
     // Calculate total price of the cart using the "cartList" array
+    let total = 0;
+    cart.forEach(element => { total += element.price * element.quantity
+    }); 
+    return total;
 }
 
 // Exercise 4
