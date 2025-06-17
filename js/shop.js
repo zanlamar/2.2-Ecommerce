@@ -158,18 +158,25 @@ const applyPromotionsCart = () =>  {
 // Fill the shopping cart modal manipulating the shopping cart dom
 const printCart = () => {
     const cartList = document.getElementById("cart_list"); // identify the elements in order to change them later
-    const totaLPrice = document.getElementById("total_price");
+    const totalPrice = document.getElementById("total_price");
+    const container = document.getElementById('total_container');
+    const table = document.querySelector(".table");
     
-    // cartList.innerHTML = ''; // empty the cart visually
-
+    
     if (cart.length === 0) {
-        cartList.innerHTML = '<p>Your cart is empty. Are you ready to shop?</p>';
-        totaLPrice.textContent = ''; // the final price is emppty if there are no product in the cart.
+        // se mantiene la parte de producto, price, quantity etc. pero dentro aparece un texto especifico
+        cartList.innerHTML = ` 
+            <tr>
+                <td colspan="5" class="text-center">🛒 Your cart is empty. Are you ready to shop?</td>
+            </tr>
+        `;
+        container.style.display = "none"; // to hide the total span, para que no aparezca el total
         return;
-    }
 
-    const cartTable = document.create
-}
+    } else { 
+        container.style.display = 'block';
+    }
+};
 
 
 // ** Nivell II **
