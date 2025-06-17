@@ -110,6 +110,7 @@ const buy = (id) => {
         counter.textContent = totalItems;
     };
     updateCounter();
+    printCart();
 }
 
 
@@ -119,7 +120,10 @@ const cleanCart = () =>  {
     cart.splice(0, cart.length); // this way it gets empty
     updatePage("count_product", 0); // this way it shows that is empty
     printCart(); // cleans the view os the cart
-}
+};
+
+const emptyCart = document.getElementById("clean-cart");
+emptyCart.addEventListener('click', cleanCart);
 
 
 
@@ -153,8 +157,18 @@ const applyPromotionsCart = () =>  {
 // Exercise 5
 // Fill the shopping cart modal manipulating the shopping cart dom
 const printCart = () => {
-    const cartList = document.getElementById("cart_list");
-    cartList.innerHTML = '';
+    const cartList = document.getElementById("cart_list"); // identify the elements in order to change them later
+    const totaLPrice = document.getElementById("total_price");
+    
+    // cartList.innerHTML = ''; // empty the cart visually
+
+    if (cart.length === 0) {
+        cartList.innerHTML = '<p>Your cart is empty. Are you ready to shop?</p>';
+        totaLPrice.textContent = ''; // the final price is emppty if there are no product in the cart.
+        return;
+    }
+
+    const cartTable = document.create
 }
 
 
@@ -163,6 +177,7 @@ const printCart = () => {
 // Exercise 7
 const removeFromCart = (id) => {
 
+    printCart();
 }
 
 const open_modal = () =>  {
