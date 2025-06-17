@@ -72,10 +72,26 @@ const products = [
 // Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
 const cart = [];
 
-const total = 0;
+// change DOM by ID
+function updatePage(id, newValue){
+    const element = document.getElementById(id);
+    if (element) element.innerHTML = newValue;
+}
+
+// activate queries and events on html:
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', event => {
+        const id = button.getAttribute('data-product-id');
+        buy(parseInt(id));
+
+    });
+});
 
 // Exercise 1
 const buy = (id) => {
+    console.log(`producto ID ${id}`);
+
     // 1. Loop for to the array products to get the item to add to cart
     let item = products.find(product => product.id === id);
     let cartItem = cart.find(product => product.id === id);
@@ -84,45 +100,61 @@ const buy = (id) => {
     // 2. Add found product to the cart array
     if (newCartItem) {cart.push({...item, quantity: 1});
         } else {
-        cartItem.quantity += 1;
-        };
+        cartItem.quantity++;
+    };
+
+    // update the product cart counter at navbar
+    const updateCounter = () => {
+        const counter = document.getElementById("count_product");
+        const totalItems = cart.reduce((sum, product) => sum + product.quantity, 0);
+        counter.textContent = totalItems;
+    };
+    updateCounter();
 }
+
+
 
 // Exercise 2
 const cleanCart = () =>  {
-    let emptyCart = cart.splice(0, cart.length);
-    
+    cart.splice(0, cart.length); // this way it gets empty
+    updatePage("count_product", 0); // this way it shows that is empty
+    printCart(); // cleans the view os the cart
 }
 
+
+
 // Exercise 3
+// Calculate total price of the cart using the "cartList" array
 const calculateTotal = () =>  {
     let total = 0;
-    // Calculate total price of the cart using the "cartList" array
     cart.forEach(element => { 
         total += element.price * element.quantity}); 
     return total.toFixed(2);
 }
 
 // Exercise 4
+// Apply promotions to each item in the array "cart"
 const applyPromotionsCart = () =>  {
-    // Apply promotions to each item in the array "cart"
-    let subtotalDiscount = 0;
+    let subtotalWithDiscount = 0;
 
     cart.forEach((element) => {
 
         if (element.offer && element.quantity >= element.offer.number) {
             const discount = element.price * (element.offer.percent / 100);
             const promoPrice = element.price - discount;
-            subtotalDiscount += promoPrice * element.quantity;
+            subtotalWithDiscount += promoPrice * element.quantity;
         } else {
-            subtotalDiscount += element.price * element.quantity;
+            subtotalWithDiscount += element.price * element.quantity;
         };
-    }); return subtotalDiscount.toFixed(2);
+    }); return subtotalWithDiscount.toFixed(2);
+
 };
 
 // Exercise 5
+// Fill the shopping cart modal manipulating the shopping cart dom
 const printCart = () => {
-    // Fill the shopping cart modal manipulating the shopping cart dom
+    const cartList = document.getElementById("cart_list");
+    cartList.innerHTML = '';
 }
 
 
