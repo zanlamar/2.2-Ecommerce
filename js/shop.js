@@ -218,6 +218,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// Exercici 6
+//Ara implementarem la validació del formulari de checkout que es troba en l'arxiu checkout.js.
+
+
+
 
 // ** Nivell II **
 
