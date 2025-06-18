@@ -71,6 +71,7 @@ const products = [
 
 // Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
 const cart = [];
+// cleanCart();
 
 // change DOM by ID
 function updatePage(id, newValue){
@@ -78,13 +79,14 @@ function updatePage(id, newValue){
     if (element) element.innerHTML = newValue;
 }
 
-// activate queries and events on html:
-const addToCartButtons = document.querySelectorAll('.add-to-cart');
-addToCartButtons.forEach(button => {
-    button.addEventListener('click', event => {
-        const id = button.getAttribute('data-product-id');
-        buy(parseInt(id));
-
+// activate queries and events on html WHEN DOM IS READY
+document.addEventListener('DOMContentLoaded', () => {
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', event => {
+                const id = button.getAttribute('data-product-id');
+                buy(parseInt(id));
+            });
     });
 });
 
@@ -109,13 +111,11 @@ const buy = (id) => {
         const totalItems = cart.reduce((sum, product) => sum + product.quantity, 0);
         counter.textContent = totalItems;
     };
+
     updateCounter();
     printCart();
 }
-
-
-
-// Exercise 2
+// Exercise 2 - empty cart (how to include this at the beggining?)
 const cleanCart = () =>  {
     cart.splice(0, cart.length); // this way it gets empty
     updatePage("count_product", 0); // this way it shows that is empty
@@ -124,7 +124,6 @@ const cleanCart = () =>  {
 
 const emptyCart = document.getElementById("clean-cart");
 emptyCart.addEventListener('click', cleanCart);
-
 
 
 // Exercise 3
@@ -150,18 +149,36 @@ const applyPromotionsCart = () =>  {
         } else {
             subtotalWithDiscount += element.price * element.quantity;
         };
-    }); return subtotalWithDiscount.toFixed(2);
 
+    }); return subtotalWithDiscount.toFixed(2);
 };
+
+
+// apply products to a single product
+
+const applyPromotionSingle = ((product) => {
+    let finalDiscountedPrice = 0;
+
+    if (product.offer && product.quantity >= product.offer.number) {
+            const discount = product.price * (product.offer.percent / 100);
+            const promoPrice = product.price - discount;
+            finalDiscountedPrice = promoPrice * product.quantity;
+    } else {
+        finalDiscountedPrice = product.price * product.quantity;
+    };
+    return finalDiscountedPrice; 
+});
 
 // Exercise 5
 // Fill the shopping cart modal manipulating the shopping cart dom
+
 const printCart = () => {
     const cartList = document.getElementById("cart_list"); // identify the elements in order to change them later
     const totalPrice = document.getElementById("total_price");
-    const container = document.getElementById('total_container');
+    const container = document.getElementById("total_container");
     const table = document.querySelector(".table");
     
+    cartList.innerHTML = '';
     
     if (cart.length === 0) {
         // se mantiene la parte de producto, price, quantity etc. pero dentro aparece un texto especifico
@@ -169,14 +186,37 @@ const printCart = () => {
             <tr>
                 <td colspan="5" class="text-center">🛒 Your cart is empty. Are you ready to shop?</td>
             </tr>
-        `;
+            `;
         container.style.display = "none"; // to hide the total span, para que no aparezca el total
         return;
 
     } else { 
         container.style.display = 'block';
     }
+
+    cart.forEach((element) => {
+        cartList.innerHTML += `
+        <tr>
+            <td>${element.name}</td>
+            <td>$${element.price}</td>
+            <td>${element.quantity}</td>
+            <td>$${applyPromotionSingle(element)}</td>
+        </tr>
+        `;
+    });
+    container.textContent = `Total: $${applyPromotionsCart()}`
 };
+
+
+/// ADD A LSITENER TO THE CHARGING DOM IN ORDER TO CLEAN THE CART BEFORE
+document.addEventListener('DOMContentLoaded', () => {
+    const emptyCart = document.getElementById("clean-cart");
+    emptyCart.addEventListener('click', cleanCart);
+
+    updatePage("count_product", 0); // this way it shows that is empty
+    printCart(); // cleans the view os the cart
+});
+
 
 
 // ** Nivell II **
