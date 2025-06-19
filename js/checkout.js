@@ -48,7 +48,13 @@ const validate = () => {
 	if(fPhone.value.trim() == "")
 		error++;
 
-	if(fEmail.value == "")
+	if(fEmail.value.trim() == "")
+		error++;
+
+	if(fPassword.value.trim() == "")
+		error++;
+
+	if(fAddress.value == "")
 		error++;
 
 	if(error>0) {

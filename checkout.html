@@ -114,13 +114,13 @@
 					</div>
 					<div class="mt-3">
 						<label for="fPassword" class="form-label">Password:</label>
-						<input id="fPassword" class="form-control" title="(4-8 characters)" type="password"
-							minlength="4" maxlength="8" placeholder="Password" required/>
+						<input id="fPassword" class="form-control" title="(3-8 characters)" type="password"
+							minlength="3" maxlength="8" placeholder="Password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,8}$" required/>
 						<div id="errorPassword" class="invalid-feedback">Enter a correct password</div>
 					</div>
 					<div class="mt-3">
 						<label for="fPhone" class="form-label">Phone Number:</label>
-						<input id="fPhone" class="form-control" type="number" placeholder="Phone No." required/>
+						<input id="fPhone" class="form-control" type="number" placeholder="Phone No." pattern="^\d+$" required/>
 						<div id="errorPhone" class="invalid-feedback">Invalid phone number!! Must be 9 digits with no
 							letters</div>
 					</div>
