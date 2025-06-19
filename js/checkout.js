@@ -1,4 +1,5 @@
 "use strict"
+
 /*
 En aquest exercici hauràs d'implementar la lògica perquè els camps del formulari compleixin les següents condicions:
 
