@@ -325,7 +325,7 @@
 								<tr>
 									<th scope="col">Product</th>
 									<th scope="col">Price</th>
-									<th scope="col">Qty.</th>
+									<th scope="col">Quantity</th>
 									<th scope="col">Total <small>(with discount)</small></th>
 								</tr>
 							</thead>
@@ -334,6 +334,25 @@
 									<th scope="row">Cooking oil</th>
 									<td>$10.5</td>
 									<td>2</td>
+									<td>
+										<!-- <div class="col-lg-2"> -->
+												<div class="input-group">
+														<span class="input-group-btn">
+															<button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+																<span class="glyphicon glyphicon-minus"></span>
+															-</button>
+														</span>
+														<input type="text" id="quantity" name="quantity" class="form-control input-number" value="10" min="1" max="100">
+															<span class="input-group-btn">
+																<button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+																	<span class="glyphicon glyphicon-plus">
+																	</span>
+																+</button>
+															</span>
+														</input>
+												</div>
+										<!-- </div> -->
+									</td>
 									<td>$21</td>
 								</tr>
 								<tr>
@@ -351,7 +370,7 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="text-center fs-3">
+					<div class="text-center fs-3" id="total_container">
 						Total: $<span id="total_price">100</span>
 					</div>
 					<div class="text-center">
@@ -369,6 +388,7 @@
 	</script>
 
 	<!-- Core theme JS-->
+	<script src="js/products.js" type="module"></script>
 	<script src="js/shop.js" type="module"></script>
 	<script src="js/checkout.js" type="module"></script>
 </body>
