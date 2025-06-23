@@ -7,6 +7,7 @@ import { products } from './products.js';
 
 // Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
 const cart = [];
+console.log("Lista de productos:", products);
 
 // change DOM by ID
 function updatePage(id, newValue){
@@ -25,6 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+    // update the product cart counter at navbar
+    const updateCounter = () => {
+        const counter = document.getElementById("count_product");
+        const totalItems = cart.reduce((sum, product) => sum + product.quantity, 0);
+        counter.textContent = totalItems;
+    };
+
 // Exercise 1
 const buy = (id) => {
     console.log(`producto ID ${id}`);
@@ -40,13 +48,6 @@ const buy = (id) => {
         cartItem.quantity++;
     };
 
-    // update the product cart counter at navbar
-    const updateCounter = () => {
-        const counter = document.getElementById("count_product");
-        const totalItems = cart.reduce((sum, product) => sum + product.quantity, 0);
-        counter.textContent = totalItems;
-    };
-
     updateCounter();
     printCart();
 }
@@ -54,7 +55,7 @@ const buy = (id) => {
 const cleanCart = () =>  {
     cart.splice(0, cart.length); // this way it gets empty
     updatePage("count_product", 0); // this way it shows that is empty
-    printCart(); // cleans the view os the cart
+    printCart(); // cleans the view of the cart
 };
 
 const emptyCart = document.getElementById("clean-cart");
@@ -129,18 +130,59 @@ const printCart = () => {
         container.style.display = 'block';
     }
 
+
     cart.forEach((element) => {
         cartList.innerHTML += `
-        <tr>
-            <td>${element.name}</td>
-            <td>$${element.price}</td>
-            <td>${element.quantity}</td>
-            <td>$${applyPromotionSingle(element)}</td>
-        </tr>
-        `;
+            <tr>
+                <td>${element.name}</td>
+                <td>$${element.price}</td>
+                <td><div class="input-group">
+                    <span class="input-group-btn">
+                        <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="" data-id="${element.id}">
+                            <span class="glyphicon glyphicon-minus"></span>
+                        -</button>
+                    </span>
+                    <input type="text" id="quantity" name="quantity" class="form-control input-number" value="${element.quantity}" min="1" max="99" data-id="${element.id}">
+                        <span class="input-group-btn">
+                            <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="" data-id="${element.id}">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            +</button>
+                        </span>
+                    </div>
+                </td>
+                <td>$${applyPromotionSingle(element)}</td>
+            </tr>
+            `;
+        container.textContent = `Total: $${applyPromotionsCart()}`  
     });
-    container.textContent = `Total: $${applyPromotionsCart()}`
+
+
+    // NEW QUANTITY SELECTOR
+    const quantityButtons = document.querySelectorAll('.btn-number');
+
+    quantityButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const id = parseInt(btn.dataset.id);  // este es el identificador del id que hemos colocado en el html
+            const type = btn.dataset.type; // si es plus o minus
+
+            if (type === 'plus') {
+                buy(id);
+            } else if (type === 'minus') {
+                const item = cart.find(p => p.id === id);
+                if (item && item.quantity > 1) {
+                    item.quantity--;
+                    printCart();
+                    updateCounter();
+                    };
+                }
+        });
+    });
+
 };
+
+
+
+
 
 
 /// ADD A LSITENER TO THE CHARGING DOM IN ORDER TO CLEAN THE CART BEFORE
@@ -149,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
     emptyCart.addEventListener('click', cleanCart);
 
     updatePage("count_product", 0); // this way it shows that is empty
-    printCart(); // cleans the view os the cart
+    printCart(); // cleans the view of the cart
 });
 
 
@@ -163,8 +205,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Exercise 7
 const removeFromCart = (id) => {
-
-    printCart();
+    const item = cart.find(p => p.id === id);
+        if (item && item.quantity > 1) {
+            item.quantity--;
+            printCart();
+            updateCounter();
+        };
 }
 
 const open_modal = () =>  {
