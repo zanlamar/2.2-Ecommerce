@@ -102,7 +102,7 @@ const applyPromotionSingle = ((product) => {
     } else {
         finalDiscountedPrice = product.price * product.quantity;
     };
-    return finalDiscountedPrice; 
+    return finalDiscountedPrice.toFixed(2); 
 });
 
 // Exercise 5
@@ -172,9 +172,11 @@ const printCart = () => {
                 if (item && item.quantity > 1) {
                     item.quantity--;
                     printCart();
-                    updateCounter();
-                    };
-                }
+                    updateCounter();                    
+                } else {
+                    removeFromCart(id)
+                };
+            };
         });
     });
 
@@ -205,13 +207,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Exercise 7
 const removeFromCart = (id) => {
-    const item = cart.find(p => p.id === id);
-        if (item && item.quantity > 1) {
-            item.quantity--;
-            printCart();
-            updateCounter();
-        };
-}
+    const index = cart.findIndex(p => p.id === id);
+
+    if (index !== -1) {
+        cart.splice(index, 1);
+        printCart();
+        updateCounter();
+    };
+};
+
 
 const open_modal = () =>  {
     printCart();
