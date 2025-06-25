@@ -7,7 +7,6 @@ import { products } from './products.js';
 
 // Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
 const cart = [];
-console.log("Lista de productos:", products);
 
 // change DOM by ID
 function updatePage(id, newValue){
@@ -59,8 +58,8 @@ const cleanCart = () =>  {
 };
 
 const emptyCart = document.getElementById("clean-cart");
+console.log(emptyCart); 
 emptyCart.addEventListener('click', cleanCart);
-
 
 // Exercise 3
 // Calculate total price of the cart using the "cartList" array

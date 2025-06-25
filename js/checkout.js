@@ -65,6 +65,9 @@ const validateInput = (field, regex) => {
 };
 
 // Exercise 6
+
+const submit = document.getElementById("btn-submit");
+
 const validate = () => {
 	validateInput(fName, regexfName);
 	validateInput(fLastN, regexfName);
@@ -72,13 +75,16 @@ const validate = () => {
 	validateInput(fEmail, regexEmail);
 	validateInput(fPassword, regexPass); 
 	validateInput(fAddress, regexAdress);
-
+	
 	if(error>0) {
-		alert("Please fill in all required fields.");
+		console.log("error")
+		window.alert("Please fill in all required fields.");
 	} else {
-		alert("Form submitted successfully");
+		console.log("success")
+		window.alert("Form submitted successfully");
 	}
 };
+submit.addEventListener("click", validate);
 
 
 // BLUR
