@@ -7,6 +7,7 @@
 	<meta name="description" content="ShopNow - Your one-stop shop for grocery, beauty and clothes" />
 	<meta name="author" content="IT Academy" />
 	<meta name="theme-color" content="#212529" />
+
 	<title>ShopNow - Online Shopping</title>
 	<!-- Favicon-->
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico" />
@@ -26,7 +27,7 @@
 
 	<!-- Navigation-->
 	<header class="primary-header">
-		<nav class="navbar py-3 py-lg-0 navbar-light bg-light navbar-expand-lg" id="main-nav">
+		<nav class="navbar py-1 py-lg-2 navbar-light bg-dark navbar-expand-lg fixed-top" id="main-nav">
 			<div class="container">
 				<a class="navbar-brand" href="#!" aria-label="ShopNow Home">ShopNow</a>
 
@@ -38,11 +39,11 @@
 					</button>
 
 					<div class="navbar-nav me-3 me-lg-0 d-flex flex-row align-items-center">
-						<button class="btn btn-outline-dark cart-button" type="button" data-bs-toggle="modal"
+						<button class="btn btn-outline-light cart-button" type="button" data-bs-toggle="modal"
 							data-bs-target="#cartModal" data-bs-auto-close="outside" aria-label="Open shopping cart">
 							<i class="fas fa-shopping-cart me-1" aria-hidden="true"></i>
 							<span>Cart</span>
-							<span class="badge bg-dark text-white ms-1 rounded-pill" id="count_product">0</span>
+							<span class="badge bg-light text-dark ms-1 rounded-pill" id="count_product">0</span>
 						</button>
 					</div>
 				</aside>
@@ -51,19 +52,19 @@
 					<ul class="navbar-nav me-auto mb-4 mb-lg-0 ms-lg-5">
 						<li class="nav-item">
 							<a class="nav-link" href="#grocery">
-								<i class="fas fa-shopping-basket" aria-hidden="true"></i>
+								<i class="fas fa-shopping-basket text-light" aria-hidden="true"></i>
 								<span>Grocery</span>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#beauty">
-								<i class="fas fa-heart" aria-hidden="true"></i>
+								<i class="fas fa-heart text-white" aria-hidden="true"></i>
 								<span>Beauty</span>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#clothes">
-								<i class="fas fa-tshirt" aria-hidden="true"></i>
+								<i class="fas fa-tshirt text-white" aria-hidden="true"></i>
 								<span>Clothes</span>
 							</a>
 						</li>
@@ -74,15 +75,51 @@
 	</header>
 
 	<main id="main-content">
+
 		<!-- Hero Section -->
-		<section class="hero bg-dark py-5" aria-label="Promotional banner">
-			<div class="container px-4 px-lg-5 my-5">
-				<div class="text-center text-white">
-					<h1 class="display-4 fw-bolder">IT Academy Shop</h1>
-					<p class="lead fw-normal text-white-50 mb-0">Get up to 50% off Today Only!</p>
+		<section class="hero bg-light py-5" aria-label="Promotional banner">
+			<div class="container">
+
+				<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
 				</div>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+					<img src="/images/herobanner/herobanner1.png" class="d-block w-100 h-50" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h5 class="display-4 fw-bolder text-black">Hot drops! Summer sales</h5>
+						<p class="display-5 text-black">Over 50% off in selected premium items</p>
+					</div>
+					</div>
+					<div class="carousel-item">
+					<img src="/images/herobanner/herobanner2.png" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h5 class="display-4 fw-bolder text-light">Essential staples, now on SALE</h5>
+						<p class="display-5 text-light">30% OFF on extra virgin olive oil*</p>
+					</div>
+					</div>
+					<div class="carousel-item">
+					<img src="/images/herobanner/herobanner3.png" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h5 class="display-4 fw-bolder text-black">It's sweet o'clock!</h5>
+						<p class="display-5 text-black">20% OFF on instant cupcake mix*</p>
+					</div>
+					</div>
+				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
 			</div>
-		</section>
+		</div>
+	</section>
 
 		<!-- Product Sections -->
 		<article class="product-section pt-5" id="grocery">
@@ -97,9 +134,9 @@
 					<div class="col mb-5">
 						<article class="card product-card h-100">
 							<div class="image-hover-wrapper">
-								<img class="card-img-top ihv default-img" src="./items/ID1-oil-A.png" alt="Cooking Oil product image"
+								<img class="card-img-top default-img" src="./images/items/ID1-oil-A.png" alt="Cooking Oil product image"
 									loading="lazy" />
-								<img class="card-img-top ihv hover-img" src="./items/ID1-oil-B.png" alt="Cooking Oil detail image"
+								<img class="card-img-top hover-img" src="./images/items/ID1-oil-B.png" alt="Cooking Oil detail image"
 									loading="lazy" />
 							</div>
 							<div class="card-body p-4">
@@ -120,8 +157,12 @@
 					</div>
 					<div class="col mb-5">
 						<article class="card product-card h-100">
-							<img class="card-img-top" src="./items/ID2-pasta-A.png" alt="Pasta product image"
-								loading="lazy" />
+							<div class="image-hover-wrapper">
+								<img class="card-img-top default-img" src="./images/items/ID2-pasta-A.png" alt="Pasta product image"
+									loading="lazy" />
+								<img class="card-img-top hover-img" src="./images/items/ID2-pasta-B.png" alt="Pasta detail image"
+									loading="lazy" />
+							</div>
 							<div class="card-body p-4">
 								<div class="text-center">
 									<h3 class="h5 fw-bolder">Pasta</h3>
@@ -140,8 +181,12 @@
 					</div>
 					<div class="col mb-5">
 						<article class="card product-card h-100">
-							<img class="card-img-top" src="./items/ID3-muffin-A.png"
-								alt="Instant cupcake mixture product image" loading="lazy" />
+							<div class="image-hover-wrapper">
+								<img class="card-img-top default-img" src="./images/items/ID3-muffin-A.png" alt="Cupcake product image"
+									loading="lazy" />
+								<img class="card-img-top hover-img" src="./images/items/ID3-muffin-B.png" alt="Cupcake detail image"
+									loading="lazy" />
+							</div>
 							<div class="card-body p-4">
 								<div class="text-center">
 									<h3 class="h5 fw-bolder">Instant cupcake mixture</h3>
@@ -171,8 +216,12 @@
 					<!-- Product Cards -->
 					<div class="col mb-5">
 						<article class="card product-card h-100">
-							<img class="card-img-top" src="./items/ID5-all-A.png" alt="All-in-1 product image"
-								loading="lazy" />
+							<div class="image-hover-wrapper">
+								<img class="card-img-top default-img" src="./images/items/ID5-all-A.png" alt="All-in-1 product image"
+									loading="lazy" />
+								<img class="card-img-top hover-img" src="./images/items/ID5-all-B.png" alt="All-in-1 detail image"
+									loading="lazy" />
+							</div>
 							<div class="card-body p-4">
 								<div class="text-center">
 									<h3 class="h5 fw-bolder">All-in-1</h3>
@@ -191,8 +240,12 @@
 					</div>
 					<div class="col mb-5">
 						<article class="card product-card h-100">
-							<img class="card-img-top" src="./items/ID4-makeup-A.png" alt="Zero makeup kit product image"
-								loading="lazy" />
+							<div class="image-hover-wrapper">
+								<img class="card-img-top default-img" src="./images/items/ID4-makeup-A.png" alt="Zero makeup product image"
+									loading="lazy" />
+								<img class="card-img-top hover-img" src="./images/items/ID4-makeup-B.png" alt="Zero makeup detail image"
+									loading="lazy" />
+							</div>
 							<div class="card-body p-4">
 								<div class="text-center">
 									<h3 class="h5 fw-bolder">Zero makeup kit</h3>
@@ -211,8 +264,12 @@
 					</div>
 					<div class="col mb-5">
 						<article class="card product-card h-100">
-							<img class="card-img-top" src="./items/ID6-liptint-A.png" alt="Lip tints product image"
-								loading="lazy" />
+							<div class="image-hover-wrapper">
+								<img class="card-img-top default-img" src="./images/items/ID6-liptint-A.png" alt="Liptint product image"
+									loading="lazy" />
+								<img class="card-img-top hover-img" src="./images/items/ID6-liptint-B.png" alt="Liptint detail image"
+									loading="lazy" />
+							</div>
 							<div class="card-body p-4">
 								<div class="text-center">
 									<h3 class="h5 fw-bolder">Lip tints</h3>
@@ -242,8 +299,12 @@
 					<!-- Product Cards -->
 					<div class="col mb-5">
 						<article class="card product-card h-100">
-							<img class="card-img-top" src="./items/ID7-dress-A.png" alt="Lawn dress product image"
-								loading="lazy" />
+							<div class="image-hover-wrapper">
+								<img class="card-img-top default-img" src="./images/items/ID7-dress-A.png" alt="Lawn dress product image"
+									loading="lazy" />
+								<img class="card-img-top hover-img" src="./images/items/ID7-dress-B.png" alt="Lawn dress detail image"
+									loading="lazy" />
+							</div>
 							<div class="card-body p-4">
 								<div class="text-center">
 									<h3 class="h5 fw-bolder">Lawn dress</h3>
@@ -262,8 +323,12 @@
 					</div>
 					<div class="col mb-5">
 						<article class="card product-card h-100">
-							<img class="card-img-top" src="./items/ID8-combo-A.png" alt="Lawn-chiffon combo product image"
-								loading="lazy" />
+							<div class="image-hover-wrapper">
+								<img class="card-img-top default-img" src="./images/items/ID8-combo-A.png" alt="Combo product image"
+									loading="lazy" />
+								<img class="card-img-top hover-img" src="./images/items/ID8-combo-B.png" alt="Combo detail image"
+									loading="lazy" />
+							</div>
 							<div class="card-body p-4">
 								<div class="text-center">
 									<h3 class="h5 fw-bolder">Lawn-chiffon combo</h3>
@@ -282,8 +347,12 @@
 					</div>
 					<div class="col mb-5">
 						<article class="card product-card h-100">
-							<img class="card-img-top" src="./items/ID9-toddler-A.png" alt="Toddler Frock product image"
-								loading="lazy" />
+							<div class="image-hover-wrapper">
+								<img class="card-img-top default-img" src="./images/items/ID9-toddler-A.png" alt="Toddler product image"
+									loading="lazy" />
+								<img class="card-img-top hover-img" src="./images/items/ID9-toddler-B.png" alt="Toddler detail image"
+									loading="lazy" />
+							</div>
 							<div class="card-body p-4">
 								<div class="text-center">
 									<h3 class="h5 fw-bolder">Toddler Frock</h3>
@@ -378,7 +447,7 @@
 					<div class="text-center fs-3" id="total_container">
 						Total: $<span id="total_price">100</span>
 					</div>
-					<div class="text-center">
+					<div class="text-center" id="checkout-buttons">
 						<a href="checkout.html" class="btn btn-primary m-3">Checkout</a>
 						<button type="button" class="btn btn-secondary m-3" id="clean-cart">Clean Cart</button>
 					</div>
@@ -395,7 +464,7 @@
 	<!-- Core theme JS-->
 	<script src="js/products.js" type="module"></script>
 	<script src="js/shop.js" type="module"></script>
-	<script src="js/checkout.js" type="module"></script>
+	<!-- <script src="js/checkout.js" type="module"></script> -->
 </body>
 
 </html>

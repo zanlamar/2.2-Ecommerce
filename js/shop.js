@@ -7,7 +7,6 @@ import { products } from './products.js';
 
 // Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
 const cart = [];
-console.log("Lista de productos:", products);
 
 // change DOM by ID
 function updatePage(id, newValue){
@@ -59,8 +58,8 @@ const cleanCart = () =>  {
 };
 
 const emptyCart = document.getElementById("clean-cart");
+console.log(emptyCart); 
 emptyCart.addEventListener('click', cleanCart);
-
 
 // Exercise 3
 // Calculate total price of the cart using the "cartList" array
@@ -113,6 +112,7 @@ const printCart = () => {
     const totalPrice = document.getElementById("total_price");
     const container = document.getElementById("total_container");
     const table = document.querySelector(".table");
+    const CTAs = document.getElementById("checkout-buttons");
     
     cartList.innerHTML = '';
     
@@ -120,14 +120,16 @@ const printCart = () => {
         // se mantiene la parte de producto, price, quantity etc. pero dentro aparece un texto especifico
         cartList.innerHTML = ` 
             <tr>
-                <td colspan="5" class="text-center">🛒 Your cart is empty. Are you ready to shop?</td>
+                <td colspan="5" class="text-center h5"><br>🛒 Your cart is empty!<br> Are you ready to shop?<br><br> 
             </tr>
             `;
         container.style.display = "none"; // to hide the total span, para que no aparezca el total
+        CTAs.style.display = "none";
         return;
 
     } else { 
         container.style.display = 'block';
+        CTAs.style.display = "block";
     }
 
 
