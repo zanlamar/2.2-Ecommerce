@@ -37,14 +37,30 @@ const validate = () => {
 	const errorPassword = document.getElementById("errorPassword");  
 	const errorPhone = document.getElementById("errorPhone");  
 
-
+	
 	
 	// Validate fields entered by the user: name, phone, password, and email
-	if(fName.value.trim() == "")
-		error++;
+
+	const regexfName = /^[A-Za-zÀ-ÿ\s]{3,}$/;
+
+
+	if(fName.value.trim() == "" || !regexfName.test(fName.value.trim())) {
+		fName.classList.add("is-invalid");
+    	fName.classList.remove("is-valid");
+		error++ }
+		else {
+    		fName.classList.remove("is-invalid");
+    		fName.classList.add("is-valid");
+		}
 	
-	if(fLastN.value.trim() == "")
-		error++;	
+	if(fLastN.value.trim() == "" || !regexfName.test(fLastN.value.trim())) {
+		fLastN.classList.add("is-invalid");
+		fLastN.classList.remove("is-valid");
+		error++ } 
+		else {
+			fLastN.classList.remove("is-invalid");
+			fLastN.classList.add("is-invalid");
+		}	
 
 	if(fPhone.value.trim() == "")
 		error++;
