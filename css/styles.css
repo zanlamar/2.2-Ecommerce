@@ -11312,3 +11312,11 @@ textarea.form-control-lg {
     display: block;
     opacity: 1;
   }
+  
+  .h1.text-center.head.m-4 {
+    margin: 5rem!important;
+  }
+
+  .m-4 {
+    margin: 5rem !important
+  }
