@@ -1,5 +1,4 @@
 "use strict"
-import { products } from './products.js';
 
 import {
     cart,
@@ -20,7 +19,6 @@ import {
 // ** Don't hesitate to seek help from your peers or your mentor if you still struggle with debugging.
 
 // Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
-// const cart = [];
 
 // change DOM by ID - TBC
 function updatePage(id, newValue){
@@ -207,7 +205,6 @@ const quantityButtons = document.querySelectorAll('.btn-number');
             };
         });
     });
-
 };
 
 
