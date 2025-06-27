@@ -37,9 +37,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 buy(parseInt(id));
                 printCart();
             });
+        });
     });
-});
 
+    const emptyCart = document.getElementById("clean-cart");
+    emptyCart.addEventListener('click', () => { 
+        cleanCart();
+        updatePage("count_product", 0); // this way it shows that is empty
+        printCart(); // cleans the view of the cart
+        // YAS FUNCIONA !
+    });
+
+    // console.log(emptyCart); 
+    
     // // update the product cart counter at navbar
     // const updateCounter = () => {
     //     const counter = document.getElementById("count_product");
@@ -73,9 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
 //     printCart(); // cleans the view of the cart
 // };
 
-const emptyCart = document.getElementById("clean-cart");
-emptyCart.addEventListener('click', cleanCart);
-// console.log(emptyCart); 
 
 // Exercise 3
 // Calculate total price of the cart using the "cartList" array
@@ -173,8 +180,8 @@ const printCart = () => {
     });
 
 
-    // NEW QUANTITY SELECTOR
-    const quantityButtons = document.querySelectorAll('.btn-number');
+// NEW QUANTITY SELECTOR
+const quantityButtons = document.querySelectorAll('.btn-number');
 
     quantityButtons.forEach((btn) => {
         btn.addEventListener('click', () => {
@@ -182,11 +189,13 @@ const printCart = () => {
             const type = btn.dataset.type; // si es plus o minus
 
             if (type === 'plus') {
+                console.log(item.quantity);
                 buy(id);
             } else if (type === 'minus') {
                 const item = cart.find(p => p.id === id);
                 if (item && item.quantity > 1) {
                     item.quantity--;
+                    console.log(item.quantity);
                     printCart();
                     updateCounter();                    
                 } else {

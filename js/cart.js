@@ -73,9 +73,14 @@ export const applyPromotionsCart = () =>  {
         };
     });
     return subtotalWithDiscount.toFixed(2);
-
 };
 
+export const cleanCart = () =>  {
+    cart.splice(0, cart.length); // this way it gets empty
+    // ESTAS DOS COSAS LAS HARÁ MÁS ADELANTE, EN EL SHOP
+    // updatePage("count_product", 0); // this way it shows that is empty
+    // printCart(); // cleans the view of the cart
+};
 
 export const removeFromCart = (id) => {
     const index = cart.findIndex(p => p.id === id);
@@ -87,11 +92,7 @@ export const removeFromCart = (id) => {
     };
 };
 
-export const cleanCart = () =>  {
-    cart.splice(0, cart.length); // this way it gets empty
-    updatePage("count_product", 0); // this way it shows that is empty
-    printCart(); // cleans the view of the cart
-};
+
 
 
 
