@@ -32,7 +32,7 @@ export const buy = (id) => {
 export const calculatePriceSingle = (product) => {
     let total = product.price * product.quantity;
     console.log('calculatesingle', total.toFixed(2)); // este si funciona
-    return total.toFixed(2); 
+    return total; 
 }
 
 export const applyPromotionSingle = ((product) => {
@@ -44,7 +44,7 @@ export const applyPromotionSingle = ((product) => {
             return promoPrice * product.quantity;
     } else {
         finalDiscountedPrice = calculatePriceSingle(product);
-        console.log('promotionsingleCart', finalDiscountedPrice)
+        console.log('promotionsingleCart', finalDiscountedPrice) // ahora si, YAS!
         return finalDiscountedPrice;
     };
 });
@@ -66,10 +66,14 @@ export const applyPromotionsCart = () =>  {
             const discount = element.price * (element.offer.percent / 100);
             const promoPrice = element.price - discount; // esto es interesante que esté en una nueva variable porque es muy goloso para marketing
             subtotalWithDiscount += promoPrice * element.quantity;
+            console.log('applypromotionscart CON DESCUENTO', subtotalWithDiscount); // creo que es ok pero faltaria el tofixed
         } else {
             subtotalWithDiscount += calculatePriceSingle(element);
+            console.log('applypromotionscart sin DESCUENTO', subtotalWithDiscount); // creo que es ok pero faltaria el tofixed
         };
     });
+    return subtotalWithDiscount.toFixed(2);
+
 };
 
 
