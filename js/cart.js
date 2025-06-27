@@ -87,8 +87,6 @@ export const removeFromCart = (id) => {
 
     if (index !== -1) {
         cart.splice(index, 1);
-        printCart();
-        updateCounter();
     };
 };
 

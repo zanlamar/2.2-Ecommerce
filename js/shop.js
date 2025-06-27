@@ -173,7 +173,7 @@ const printCart = () => {
                         </span>
                     </div>
                 </td>
-                <td>$${applyPromotionSingle(element)}</td>
+                <td>$${applyPromotionSingle(element).toFixed(2)}</td>
             </tr>
             `;
         container.textContent = `Total: $${applyPromotionsCart()}`  
@@ -187,12 +187,13 @@ const quantityButtons = document.querySelectorAll('.btn-number');
         btn.addEventListener('click', () => {
             const id = parseInt(btn.dataset.id);  // este es el identificador del id que hemos colocado en el html
             const type = btn.dataset.type; // si es plus o minus
+            const item = cart.find(p => p.id === id);
 
             if (type === 'plus') {
-                console.log(item.quantity);
                 buy(id);
+                printCart();
+
             } else if (type === 'minus') {
-                const item = cart.find(p => p.id === id);
                 if (item && item.quantity > 1) {
                     item.quantity--;
                     console.log(item.quantity);
@@ -200,14 +201,14 @@ const quantityButtons = document.querySelectorAll('.btn-number');
                     updateCounter();                    
                 } else {
                     removeFromCart(id)
+                    printCart();
+                    updateCounter();           
                 };
             };
         });
     });
 
 };
-
-
 
 
 
