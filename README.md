@@ -48,8 +48,25 @@ open index.html
 The project was developed in two branches: `main`and `develop`.
 
 Folder structure: 
-
-<pre> ```text 📁 STARTER-CODE-FRONTEND-SHOP ├── 📄 index.html ├── 📄 checkout.html ├── 📁 js │ ├── 📄 cart.js │ ├── 📄 checkout.js │ ├── 📄 products.js │ └── 📄 shop.js ├── 📁 css │ └── 📄 styles.css ├── 📁 images │ ├── 📄 favicon.ico │ ├── 📄 product.svg │ ├── 📁 items │ │ └── 🖼️ (product images) │ └── 📁 herobanner │ └── 🖼️ (hero banner images) ``` </pre>
+```
+📁 STARTER-CODE-FRONTEND-SHOP
+├── 📄 index.html
+├── 📄 checkout.html
+├── 📁 js
+│   ├── 📄 cart.js
+│   ├── 📄 checkout.js
+│   ├── 📄 products.js
+│   └── 📄 shop.js
+├── 📁 css
+│   └── 📄 styles.css
+├── 📁 images
+│   ├── 📄 favicon.ico
+│   ├── 📄 product.svg
+│   ├── 📁 items
+│   │   └── 🖼️ (product images)
+│   └── 📁 herobanner
+│       └── 🖼️ (hero banners)
+```
 
 
 ---
@@ -90,17 +107,22 @@ All validations are handled with vanilla JavaScript, using RegEx and logic funct
 
 Some improvement changes onto the original design, focused mainly on UX and commercial purposes:
 
-- 🔝 **Sticky navbar** with interactive hover buttons.
+- **Sticky navbar** with interactive hover buttons.
 
-- 🎯 **Dynamic herobanner** for better offer visibility.
+- **Dynamic herobanner** for better offer visibility.
 
-- 🖼️ Enhanced **product visuals with extra hover images**.
+- Enhanced **product visuals with extra hover images**.
 
-- 💳 **Optimized checkout UX** – clearer focus on conversion.
+- More appealing **content displayed on clean cart**.
 
-- 💬 **Refined commercial layout** and content for clarity and appeal.
+- **Enhanced CTAs** applying styles.
+
+- **Optimized checkout UX** – clearer focus on conversion.
+
+- **Refined commercial layout** and content for clarity and appeal.
 
 
+---
 
 
 ### 📸  Preview
@@ -126,7 +148,7 @@ Some improvement changes onto the original design, focused mainly on UX and comm
 ## 💬 Notes
 - Missing some backend in order to make the navbar on the checkout page useful.
 - Many other ideas to improve commercial purposes on the backlist.
-- Refactorizing was satisfying.
+- Refactorizing was super satisfying.
 
 
 
@@ -134,5 +156,8 @@ Some improvement changes onto the original design, focused mainly on UX and comm
 ### ⭐ Highlights
 
 - Thanks to Rick for his check.
+- This is progress. Small but steady.
+
+![](https://i.pinimg.com/originals/20/2d/f7/202df7a818ffdf632d5e342141562218.gif)
 
 ---
