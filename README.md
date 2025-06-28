@@ -1,69 +1,163 @@
-# Sprint 2 IT Academy | Shop
+# ITA SPRINT 2: JAVASCRIPT Basics — by Ana Laf
 
-## Introduction
+---
 
-A company in the e-commerce sector has asked us for a web application that allows them to offer the purchase of their products through the internet.
-
-You will be in charge of setting up an initial demo version of the application for the client: management of the shopping cart and the application of the promotions on the final price. You have 1 week to finish this part of sprint (2.2).
-
-<br>
-
-## Requirements
+## 📄 Description
+Second sprint of the bootcamp. Second part focused on JavaScript logics of an e-commerce.
 
 
-1. Clone this repo
+
+
+## 🎯 Objectives
+
+- Put **JavaScript** concepts into practice.
+- Learn to manipulate a **dataset**.
+- Divide code into **single-responsibility** functions.
+- Develop **cart functionalities / logic**.
+- Develop form **validations**.
+
+
+
+
+
+## 💻 Technologies Used
+
+- HTML5, CSS & Bootstrap 5 (for layout and minimal styling).
+- JavaScript (DOM manipulation + validation).
+- RegEx (for email, phone, password patterns).
+
+
+
+## 📋 Requirements
+
+No additional dependencies are required to run this project. You just need a modern web browser (Chrome, Firefox, Edge, etc.).
+
+
+## 🛠 Installation
+
+There’s no need to install anything for this project, just clone the Git repository and dive through the main.html file.
 ```bash
-$ git clone https://github.com/IT-Academy-BCN/starter-code-frontend-shop
+git clone [https://github.com/zanlamar/2.2-Ecommerce]
+cd STARTER-CODE-FRONTEND-SHOP
+open index.html
+``` 
+---
+
+
+## 📁 Project Structure
+The project was developed in two branches: `main`and `develop`.
+
+Folder structure: 
+```
+📁 STARTER-CODE-FRONTEND-SHOP
+├── 📄 index.html
+├── 📄 checkout.html
+├── 📁 js
+│   ├── 📄 cart.js
+│   ├── 📄 checkout.js
+│   ├── 📄 products.js
+│   └── 📄 shop.js
+├── 📁 css
+│   └── 📄 styles.css
+├── 📁 images
+│   ├── 📄 favicon.ico
+│   ├── 📄 product.svg
+│   ├── 📁 items
+│   │   └── 🖼️ (product images)
+│   └── 📁 herobanner
+│       └── 🖼️ (hero banners)
 ```
 
-2. Unlink your repo from the itacademy repository.
-(Explanation: You have to upload the code to your GitHub repository, not to the IT Academy. That's why you have to unlink your project from IT Academy GitHub with the following command)
 
-```bash
-$ git remote rm origin
-```
+---
 
-3. Link your repo to the repository you have to create in your github account
-(Explanation: Now your project is not linked to any remote repository. In order to upload your code, you have to link your project to the new repository created on github.com using the following command)
+## 🔮  Functionalities
 
-```bash
-$ git remote add origin <your repo name!>
-```
+### 🛒 Cart Functionality / logic
+##### Add to cart:
+Products are added to the cart[ ] array.
+If the product already exists, its quantity is incremented.
 
-<br>
+##### View and print cart:
+Products are listed in a modal with name, price, quantity, and subtotal.
+Totals are dynamically calculated.
 
-## Submission
+##### Discounts applied:
+Products with offers apply discounts automatically if quantity requirements are met.
 
-1. It is necessary to upload each exercise in a separate commit. The commit name must clearly indicate its content.
-
-2. Upload the link to your GitHub repository to the virtual campus, enabling your mentor to review and provide feedback.
+##### Clear cart:
+Empties the cart and updates all DOM elements (counter, total_price, etc).
 
 
+### ✅ Checkout form validation
+##### Field-level validation on blur:
+Each input field is validated when the user leaves it. If the value is incorrect, an error message appears below the field.
 
-<br>
+##### Dynamic feedback:
+Adds is-invalid class and error message on invalid input.
+Adds is-valid class when the input becomes valid.
+Error messages are contextual and easy to customize on HTML.
 
-## Introduction
+##### Form-level validation on submit
+All validations are handled with vanilla JavaScript, using RegEx and logic functions for field-specific rules.
 
-The statement of the exercise is available on the virtual campus.
+---
 
-<br>
+## 👩🏻‍🎨 Layout
+
+Some improvement changes onto the original design, focused mainly on UX and commercial purposes:
+
+- **Sticky navbar** with interactive hover buttons.
+
+- **Dynamic herobanner** for better offer visibility.
+
+- Enhanced **product visuals with extra hover images**.
+
+- More appealing **content displayed on clean cart**.
+
+- **Enhanced CTAs** applying styles.
+
+- **Optimized checkout UX** – clearer focus on conversion.
+
+- **Refined commercial layout** and content for clarity and appeal.
 
 
-## Instructions
+---
 
-You have the following indications from the frontend manager:
 
-- You have prepared the base of the project on which you will work: https://github.com/IT-Academy-BCN/starter-code-frontend-shop
+### 📸  Preview
 
-- The base of the project on which you will work has already created all the files, and an initial version of the interface, so you can focus on programming the logic.
+![JavaScript preview](preview.gif)
 
-- As at the moment we don't consume data from a server using an API, we will work with hardcoded data in the application. For the moment we will implement the logic using a small group of 9 products divided in 3 sections.
 
-- Except for the last level, showing the result of the functions by console is enough.
 
-- The logic to implement will be placed in the src/grocery.js and src/checkout.js files. You will see that the built in functions have already been created for you to implement them.
+---
 
-- It is forbidden to copy the code, since this way you don't learn anything. Furthermore, as you can see, the second release of sprint 5 is a mini-level test with the mentor, in which you will have to demonstrate live that you have acquired the javascript concepts. Don't worry, if you work on the releases you won't have any problems.
+## 📋 Takeaways
+- It was delightful to apply JavaScript to a 'realistic' project as an ecommerce.
+- It was exciting to unlock so many new functionalities while developing this project! 🤩
+- No drama with github during this sprint (!!!).
+- Deeper understanding of layout and styles.
+- I understand now the unique responsibility principle.
+- The HTML validation & the 'blur' event were super interesting.
 
-# 2.2-Ecommerce
-ITA Sprint 2 Part 2
+
+
+
+
+## 💬 Notes
+- Missing some backend in order to make the navbar on the checkout page useful.
+- Many other ideas to improve commercial purposes on the backlist.
+- Refactorizing was super satisfying.
+
+
+
+
+### ⭐ Highlights
+
+- Thanks to Rick for his check.
+- This is progress. Small but steady.
+
+![](https://i.pinimg.com/originals/20/2d/f7/202df7a818ffdf632d5e342141562218.gif)
+
+---

@@ -84,6 +84,7 @@ const validate = () => {
 		window.alert("Form submitted successfully");
 	}
 };
+
 submit.addEventListener("click", validate);
 
 
@@ -91,14 +92,14 @@ submit.addEventListener("click", validate);
 
 const blurValidation = (field, regex) => {
 	if(field.value.trim() == "" || !regex.test(field.value.trim())) {
-    field.classList.add("is-invalid");
-    field.classList.remove("is-valid");
-	field.style.backgroundColor = invalidColor;
-  } else {
-    field.classList.add("is-valid");
-	field.classList.remove("is-invalid");
-	field.style.backgroundColor = validColor;
-  }
+    	field.classList.add("is-invalid");
+    	field.classList.remove("is-valid");
+		field.style.backgroundColor = invalidColor;
+  	} else {
+    	field.classList.add("is-valid");
+		field.classList.remove("is-invalid");
+		field.style.backgroundColor = validColor;
+  	}
 };
 
 fName.addEventListener("blur", () => {
